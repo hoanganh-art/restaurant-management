@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\HoaDon;
+use App\Models\BanAn;
+use App\Models\MonAn;
+use App\Models\KhachHang;
+use App\Models\NhanVien;
 
 class HoaDonController extends Controller
 {
@@ -11,10 +16,11 @@ class HoaDonController extends Controller
      */
     public function index()
     {
-        $hoaDons = HoaDon::with(['khachHang', 'nhanVien', 'banAn'])
-                        ->orderBy('NgayHD', 'desc')
-                        ->paginate(10);
-        return view('hoa-don.index', compact('hoaDons'));
+        $doanhThuHomNay = HoaDon::whereDate('created_at', today())->sum('tong_tien');
+
+        return view('hoa-don.index', [
+            'doanhThuHomNay' => $doanhThuHomNay
+        ]);
     }
 
     public function create()
