@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cong_thucs', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('MaMon')->constrained('mon_ans', 'MaMon');
+            $table->foreignId('MaNL')->constrained('nguyen_lieus', 'MaNL');
+            $table->decimal('SoLuong', 8, 2);
             $table->timestamps();
+            $table->primary(['MaMon', 'MaNL']);
         });
     }
 

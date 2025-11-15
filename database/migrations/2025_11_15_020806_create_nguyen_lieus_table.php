@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nguyen_lieus', function (Blueprint $table) {
-            $table->id();
+            $table->id('MaNL');
+            $table->string('TenNL');
+            $table->string('DonViTinh');
+            $table->decimal('SoLuongTon', 10, 2)->default(0);
+            $table->decimal('GiaNhap', 10, 2)->default(0);
             $table->timestamps();
         });
     }
