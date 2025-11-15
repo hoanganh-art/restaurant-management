@@ -18,9 +18,7 @@ class HoaDonController extends Controller
     {
         $doanhThuHomNay = HoaDon::whereDate('created_at', today())->sum('tong_tien');
 
-        return view('hoa-don.index', [
-            'doanhThuHomNay' => $doanhThuHomNay
-        ]);
+        return view('hoa-don.index', compact('doanhThuHomNay'));
     }
 
     public function create()

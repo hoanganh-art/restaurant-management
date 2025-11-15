@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\BanAnController;
+use App\Http\Controllers\MonAnController;
+use App\Http\Controllers\DatBanController;
+use App\Http\Controllers\KhachHangController;
+use App\Http\Controllers\ThongKeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 // Quản lý hóa đơn
 Route::resource('hoa-don', HoaDonController::class);
@@ -32,6 +36,12 @@ Route::resource('mon-an', MonAnController::class);
 
 // Đặt bàn
 Route::resource('dat-ban', DatBanController::class);
+
+// Quản lý khách hàng
+Route::resource('khach-hang', KhachHangController::class);
+
+// Thống kê
+Route::get('/thong-ke', [App\Http\Controllers\ThongKeController::class, 'index'])->name('thong-ke.index');
 
 // Authentication cho nhân viên
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');

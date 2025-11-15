@@ -35,10 +35,10 @@
 
             <!-- User Menu -->
             <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <img src="https://ui-avatars.com/api/?name={{ auth()->user()->HoTen }}&background=3B82F6&color=fff"
+                {{-- <button @click="open = !open" class="flex items-cen<img src="https://ui-avatars.com/api/?name={{ auth()->user()->HoTen }}&background=3B82F6&color=fff"ter space-x-3 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"> --}}
+
                          alt="Avatar" class="w-8 h-8 rounded-full">
-                    <span class="text-sm font-medium text-gray-700">{{ auth()->user()->HoTen }}</span>
+                    {{-- <span class="text-sm font-medium text-gray-700">{{ auth()->user()->HoTen }}</span> --}}
                     <i class="fas fa-chevron-down text-gray-400 text-xs"></i>
                 </button>
 

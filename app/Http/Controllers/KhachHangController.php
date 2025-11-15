@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KhachHang;
 
 class KhachHangController extends Controller
 {
@@ -33,9 +34,11 @@ class KhachHangController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $khachHang = KhachHang::findOrFail($id);
+
+        return view('khach-hang.show', compact('khachHang'));
     }
 
     /**
